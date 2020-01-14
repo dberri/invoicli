@@ -1,0 +1,22 @@
+{
+  "name": "invoicli",
+  "version": "0.1.0",
+  "description": "A CLI to create invoices",
+  "main": "lib/index.js",
+  "bin": {
+    "invoicli": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "invoice"
+  ],
+  "author": "David Berri",
+  "license": "MIT",
+  "dependencies": {
+    "html-pdf": "^2.2.0",
+    "yargs": "^15.1.0"
+  }
+}
