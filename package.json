@@ -16,7 +16,7 @@
   "author": "David Berri",
   "license": "MIT",
   "dependencies": {
-    "html-pdf": "^2.2.0",
+    "html5-to-pdf": "^3.2.0",
     "yargs": "^15.1.0"
   }
 }
