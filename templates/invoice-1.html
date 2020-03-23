@@ -5,12 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Invoice</title>
+  <style>
+    html {
+      width: 210mm;
+    }
+
+    body {
+      font-family: Helvetica, sans-serif;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    html * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 3.5rem;
+    }
+
+    section {
+      margin-bottom: 1rem;
+    }
+
+    .Invoice {
+      width: 100%;
+    }
+
+    .Invoice p {
+      margin-bottom: 10px;
+    }
+
+    .Header {
+      display: flex;
+    }
+
+    .Header>div {
+      width: 50%;
+    }
+
+    .Header>div:nth-child(2) {
+      text-align: right;
+    }
+
+    .Header .InvoiceInfo {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .InvoiceInfo>dt {
+      font-weight: bold;
+    }
+
+    .InvoiceInfo>dt,
+    .InvoiceInfo>dd {
+      width: 50%;
+      margin-bottom: 10px;
+    }
+
+    .InvoiceInfo>dd {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .InvoiceTable {
+      table-layout: fixed;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .InvoiceTable thead tr {
+      background-color: #ccc;
+    }
+
+    .InvoiceTable thead th,
+    .InvoiceTable tbody td,
+    .InvoiceTable tfoot td {
+      text-align: right;
+      padding: 10px;
+    }
+
+    .InvoiceTable thead th:first-child,
+    .InvoiceTable tbody td:first-child {
+      text-align: left;
+    }
+
+    .InvoiceTable thead th:first-child {
+      width: 50%;
+    }
+
+    .InvoiceTable tfoot td {
+      padding-top: 3rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
-  <h2>Description: #DESCRIPTION#</h2>
-  <h2>Value per hour: #VALUE_PER_HOUR#</h2>
-  <h2>Hours: #HOURS#</h2>
+  <div id="pageContent" class="Invoice">
+    <section class="Header">
+      <div class="IssuerInfo">
+        <p><b>From</b></p>
+        <p>#ISSUER_NAME#</p>
+        <p>#ISSUER_ADDRESS_LINE_1#</p>
+        <p>#ISSUER_ADDRESS_LINE_2#</p>
+        <p>#ISSUER_ADDRESS_LINE_3#</p>
+      </div>
+      <div>
+        <h1>INVOICE</h1>
+      </div>
+    </section>
+    <section class="Header">
+      <div class="ClientInfo">
+        <p><b>To</b></p>
+        <p>#CLIENT_NAME#</p>
+        <p>#CLIENT_ADDRESS_LINE_1#</p>
+        <p>#CLIENT_ADDRESS_LINE_2#</p>
+        <p>#CLIENT_ADDRESS_LINE_3#</p>
+      </div>
+      <div>
+        <dl class="InvoiceInfo">
+          <dt>Invoice#</dt>
+          <dd>#INVOICE_NUMBER#</dd>
+          <dt>Invoice Date</dt>
+          <dd>#INVOICE_DATE#</dd>
+          <dt>Due Date</dt>
+          <dd>#INVOICE_DUE_DATE#</dd>
+        </dl>
+      </div>
+    </section>
+    <section>
+      <table class="InvoiceTable">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Hours</th>
+            <th>Rate</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#INVOICE_DESCRIPTION#</td>
+            <td>#INVOICE_HOURS#</td>
+            <td>#INVOICE_RATE# #INVOICE_CURRENCY#</td>
+            <td>#INVOICE_AMOUNT# #INVOICE_CURRENCY#</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total:</td>
+            <td>#INVOICE_AMOUNT# #INVOICE_CURRENCY#</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section>
+      Bank details
+    </section>
+  </div>
 </body>
 
 </html>
