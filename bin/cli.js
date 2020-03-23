@@ -5,15 +5,19 @@ var argv = require('yargs')
   .command('create', 'Creates a PDF invoice')
   .describe('d', 'Description')
   .describe('q', 'Hours')
-  .describe('v', 'Value per hour')
-  .demandOption(['d', 'q', 'v'])
+  .describe('r', 'Rate')
+  .demandOption(['d', 'q', 'r'])
   .help('h')
   .alias('h', 'help')
   .argv;
 
-if (argv.d && argv.q && argv.v) {
-  const { d, q, v } = argv
-  require('../lib/index')(d, q, v)
+if (argv.d && argv.q && argv.r) {
+  const args = {
+    INVOICE_DESCRIPTION: argv.d,
+    INVOICE_RATE: argv.r.toFixed(2),
+    INVOICE_HOURS: argv.q.toFixed(2),
+  }
+  require('../lib/index')(args)
 }
 
 // cmds
